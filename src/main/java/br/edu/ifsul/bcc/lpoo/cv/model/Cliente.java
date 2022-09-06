@@ -7,7 +7,27 @@ import java.util.List;
 public class Cliente extends Pessoa{
 
     private Calendar data_ultima_visita;
-
     private List<Pet> pets; //agregacao
 
+    public Cliente(){
+
+
+
+    }
+
+    public Calendar getData_ultima_visita() {
+        return data_ultima_visita;
+    }
+
+    public void setData_ultima_visita(Calendar data_ultima_visita) {
+        this.data_ultima_visita = data_ultima_visita;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
 }
