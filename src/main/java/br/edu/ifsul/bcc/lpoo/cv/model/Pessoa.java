@@ -2,7 +2,7 @@ package br.edu.ifsul.bcc.lpoo.cv.model;
 
 import java.util.Calendar;
 
-public class Pessoa {
+public abstract class Pessoa {
 
     private String cpf;
     private String rg;
