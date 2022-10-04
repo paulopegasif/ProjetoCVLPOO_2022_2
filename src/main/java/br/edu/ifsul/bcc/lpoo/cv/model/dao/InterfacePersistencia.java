@@ -1,9 +1,6 @@
 package br.edu.ifsul.bcc.lpoo.cv.model.dao;
 
-import br.edu.ifsul.bcc.lpoo.cv.model.Cliente;
-import br.edu.ifsul.bcc.lpoo.cv.model.Medico;
-import br.edu.ifsul.bcc.lpoo.cv.model.Pessoa;
-import br.edu.ifsul.bcc.lpoo.cv.model.Produto;
+import br.edu.ifsul.bcc.lpoo.cv.model.*;
 
 import java.util.List;
 
@@ -16,4 +13,5 @@ public interface InterfacePersistencia {
     public void persist(Object o) throws Exception;
     public void remover(Object o) throws Exception;
 
+    List<Procedimento> listProcedimento() throws Exception;
 }

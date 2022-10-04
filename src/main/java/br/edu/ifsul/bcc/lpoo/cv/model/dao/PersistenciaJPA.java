@@ -19,7 +19,7 @@ public class PersistenciaJPA implements InterfacePersistencia {
 
     @Override
     public Object find(Class c, Object id) throws Exception {
-        return null;
+        return entity.find(c, id); //encontra um determinado registro
     }
 
     @Override
