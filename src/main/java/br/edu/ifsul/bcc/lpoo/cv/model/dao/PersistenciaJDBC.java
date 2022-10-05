@@ -2,9 +2,7 @@ package br.edu.ifsul.bcc.lpoo.cv.model.dao;
 
 import br.edu.ifsul.bcc.lpoo.cv.model.Procedimento;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,19 +12,35 @@ public class PersistenciaJDBC implements InterfacePersistencia {
     private final String USER = "postgres";
     private final String SENHA = "postgres";
     public static final String URL = "jdbc:postgresql://localhost:5433/dbcvLPOO_2022_2";
-    private Connection con = null;
+    private Connection con = null; //classe connection para criar a conexão
 
 
     public PersistenciaJDBC() throws Exception{
 
+        Class.forName(DRIVER); //carregando o driver sem precisar de um try catch (throws Exception)
+        this.con = DriverManager.getConnection(URL,USER,SENHA); //instancia para o obj Connection
 
+        System.out.println("Estabelecendo Conexao com o BD via JDBC!");
 
     }
 
     @Override
     public Boolean conexaoAberta() {
-        return null;
+
+        try{
+            if(con != null){
+                return !con.isClosed(); // verificando se a conexao esta aberta
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            System.out.println("Ocorreu um erro ao acessar o banco de dados: " + throwables.getMessage());
+        }
+
+        return false; //retorna false se cair no catch
     }
+
+
+
 
     @Override
     public void fecharConexao() {
@@ -49,6 +63,7 @@ public class PersistenciaJDBC implements InterfacePersistencia {
     public void remover(Object o) throws Exception {
 
     }
+    
 
     @Override
     public List<Procedimento> listProcedimento() throws Exception {

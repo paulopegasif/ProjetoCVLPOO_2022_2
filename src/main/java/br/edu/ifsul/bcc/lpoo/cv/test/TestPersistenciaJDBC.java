@@ -1,19 +1,20 @@
 package br.edu.ifsul.bcc.lpoo.cv.test;
-
 import br.edu.ifsul.bcc.lpoo.cv.model.Procedimento;
 import br.edu.ifsul.bcc.lpoo.cv.model.dao.PersistenciaJDBC;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
 
 public class TestPersistenciaJDBC {
 
 
-    //@Test
+    @Test
     public void testConexao() throws Exception  {
 
         PersistenciaJDBC persistencia = new PersistenciaJDBC();
         if(persistencia.conexaoAberta()){
-            System.out.println("abriu a conexao com o BD via jdbc");
+            System.out.println("Abriu a conexao com o BD via jdbc...");
 
             persistencia.fecharConexao();
 

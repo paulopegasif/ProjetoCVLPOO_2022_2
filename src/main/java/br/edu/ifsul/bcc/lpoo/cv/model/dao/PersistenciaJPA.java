@@ -1,5 +1,9 @@
 package br.edu.ifsul.bcc.lpoo.cv.model.dao;
 
+import br.edu.ifsul.bcc.lpoo.cv.model.Procedimento;
+
+import java.util.List;
+
 public class PersistenciaJPA implements InterfacePersistencia {
 
     public PersistenciaJPA(){
@@ -19,7 +23,8 @@ public class PersistenciaJPA implements InterfacePersistencia {
 
     @Override
     public Object find(Class c, Object id) throws Exception {
-        return entity.find(c, id); //encontra um determinado registro
+        //entity
+        return find(c, id); //encontra um determinado registro
     }
 
     @Override
@@ -30,5 +35,10 @@ public class PersistenciaJPA implements InterfacePersistencia {
     @Override
     public void remover(Object o) throws Exception {
 
+    }
+
+    @Override
+    public List<Procedimento> listProcedimento() throws Exception {
+        return null;
     }
 }
